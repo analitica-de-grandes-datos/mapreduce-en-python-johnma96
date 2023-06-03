@@ -2,15 +2,23 @@
 # >>> Escriba el codigo del reducer a partir de este punto <<<
 #
 import sys
-list = []
+
+dict =  {}
 
 for row in sys.stdin:
   linea = row.strip()
   linea = linea.split(";")
-  tupla = (linea[0],linea[1])
-  list.append(tupla)
-  list.sort(key=lambda x: x[1])
-for tupla in list:
-  letra = tupla[0]
-  line =  letra + "," + str(tupla[1]) + "\n"
+  if linea[0] in dict.keys():
+    dict[linea[0]] +=  1
+    
+  else:
+    dict[linea[0]] = 1
+
+
+lista = [(i,dict[i]) for i in dict.keys()]
+lista.sort(key=lambda x: x[0])
+
+for tupla in lista:
+  
+  line =  str(tupla[0]) + "," + str(tupla[1]) + "\n"
   sys.stdout.write(line) 
