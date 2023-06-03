@@ -1,6 +1,8 @@
 #
 # >>> Escriba el codigo del reducer a partir de este punto <<<
 #
+
+
 import sys
 dict = {}
 for row in sys.stdin:
@@ -11,4 +13,4 @@ for row in sys.stdin:
 for i in dict.keys():
    letra = i.strip()
    line =  letra + "\t" + str(dict[i]) + "\n"
-   sys.stdout.write(line)
+   sys.stdout.write(line)  
